@@ -77,19 +77,23 @@ public class ARDroneDirection {
         this.clockwise = clockwise;
     }
 
-    @Override
-    public String toString() {
-        JSONObject data = new JSONObject();
+    public JSONObject toJSON() {
+        JSONObject direction = new JSONObject();
+
         try {
-            data.put("direction", this);
+            direction.put("left", this.left);
+            direction.put("right", this.right);
+            direction.put("up", this.up);
+            direction.put("down", this.down);
+            direction.put("forward",this.forward);
+            direction.put("backward", this.backward);
+            direction.put("counterClockwise", this.counterClockwise);
+            direction.put("clockwise", this.clockwise);
         } catch (JSONException e) {
             Log.e("JSON ERROR", "in toString: " + e.toString());
         }
-        return data.toString();
-    };
-
-
-
+        return direction;
+    }
 
 
 }

@@ -164,6 +164,7 @@ public class MainActivity extends Activity {
     server = new Server(PORT);
     sensorData = new Data(server);
     mSensorManager.registerListener(orientationSensor, mOrientation, SensorManager.SENSOR_DELAY_UI);
+    mSensorManager.registerListener(initialOrientationSensor, mOrientation, SensorManager.SENSOR_DELAY_UI);
   }
 
   @Override
@@ -191,6 +192,30 @@ public class MainActivity extends Activity {
       }
     }
   }
+
+  private SensorEventListener initialOrientationSensor = new SensorEventListener() {
+    @Override
+    public void onSensorChanged(SensorEvent sensorEvent) {
+      azimuth_angle = sensorEvent.values[0];
+      pitch_angle = sensorEvent.values[1];
+      roll_angle = sensorEvent.values[2];
+
+      HashMap<String, Float> orientation = new HashMap<String, Float>();
+
+      orientation.put("pitch", pitch_angle);
+      orientation.put("azimuth", azimuth_angle);
+      orientation.put("roll", roll_angle);
+      sensorData.setInitialOrientation(orientation);
+
+      mSensorManager.unregisterListener(initialOrientationSensor);
+
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+    }
+  };
 
   private SensorEventListener orientationSensor = new SensorEventListener() {
     @Override
