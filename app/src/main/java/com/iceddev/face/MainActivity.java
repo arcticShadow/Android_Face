@@ -123,7 +123,7 @@ public class MainActivity extends Activity {
     WifiInfo wifiInfo = wifiMgr.getConnectionInfo();
     int ip = wifiInfo.getIpAddress();
     final String ipAddress = formatIpAddress(ip);
-    chanText.setText("IP: " + ipAddress);
+    chanText.setText("IP: " + ipAddress + ":"+this.PORT);
 
     mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
     List<Sensor> sensorList = mSensorManager.getSensorList(Sensor.TYPE_ALL);
@@ -208,16 +208,13 @@ public class MainActivity extends Activity {
         }
       });
 
-      JSONObject orientation = new JSONObject();
+      HashMap<String, Float> orientation = new HashMap<String, Float>();
 
-      try {
-        orientation.put("pitch", pitch_angle);
-        orientation.put("azimuth", azimuth_angle);
-        orientation.put("roll", roll_angle);
-        sensorData.setOrientation(orientation);
-      } catch (JSONException e) {
-        Log.e("JSON ERROR", e.toString());
-      }
+      orientation.put("pitch", pitch_angle);
+      orientation.put("azimuth", azimuth_angle);
+      orientation.put("roll", roll_angle);
+      sensorData.setOrientation(orientation);
+
     }
 
     @Override
