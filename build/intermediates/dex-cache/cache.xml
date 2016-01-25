@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/coledi/Library/Android/sdk/extras/android/m2repository/com/android/support/support-v4/18.0.0/support-v4-18.0.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
+        <dex dex="/Users/coledi/StudioProjects/Face/app/build/intermediates/pre-dexed/debug/support-v4-18.0.0-9080925e37065649de90bee26d98f50e3d061dc9.jar" />
+    </item>
+    <item
+        jar="/Users/coledi/StudioProjects/Face/app/libs/androidasync-1.1.6.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="7ed2f65ce1d88cc22be93ca60178d18728a28b55">
+        <dex dex="/Users/coledi/StudioProjects/Face/app/build/intermediates/pre-dexed/debug/androidasync-1.1.6-06e2e1f339763d8a5b60c78e4e5c639b57a74ed8.jar" />
+    </item>
+
+</items>
